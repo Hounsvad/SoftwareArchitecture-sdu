@@ -1,11 +1,11 @@
 version: '3'
 services:
   server1:
-    image: ghcr.io/hounsvad/SoftwareArchitecture/LoadTestServer:latest
+    image: ghcr.io/hounsvad/softwarearchitechture-sdu/performance-sink:latest
     container_name: server1
     restart: unless-stopped
   server2:
-    image: ghcr.io/hounsvad/SoftwareArchitecture/LoadTestServer:latest
+    image: ghcr.io/hounsvad/softwarearchitechture-sdu/performance-sink:latest
     container_name: server2
     restart: unless-stopped
   loadbalancer:
