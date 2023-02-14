@@ -1,0 +1,22 @@
+version: '3'
+services:
+  server1:
+    image: ghcr.io/hounsvad/SoftwareArchitecture/LoadTestServer:latest
+    container_name: server1
+    restart: unless-stopped
+  server2:
+    image: ghcr.io/hounsvad/SoftwareArchitecture/LoadTestServer:latest
+    container_name: server2
+    restart: unless-stopped
+  loadbalancer:
+    image: nginx:latest
+    container_name: loadbalancer
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server1
+      - server2
+    
